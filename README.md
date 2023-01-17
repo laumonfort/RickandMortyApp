@@ -8,14 +8,13 @@
 
 ###  Requirements:
 
-- Create a Swift App via API
-- Show list of characters (show: image, name, status, species)
-- Show character detail (show: image, name, status, species)
-- Add a Launch Screen and app icon
+- Create a Swift App via API.
+- Show a list of characters (show: image, name, status, species)
+- Retreive character detail (show: image, name, status, species)
 
 ###  Bonus features
 
-- Built in SwiftUI
+- Build in SwiftUI
 - Add a Splash Screen and app icon
 - Designed to improve the user experience
 
