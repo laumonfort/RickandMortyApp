@@ -1,12 +1,14 @@
 # Rick and Morty App (SwifUI)
 
-This is an app using the Rick and Morty API: https://rickandmortyapi.com/ 
-It's written in SwiftUI to display the characters from the show:
+- This is an app using the Rick and Morty API: https://rickandmortyapi.com/ 
+- Written in SwiftUI to display the characters from the show:
 
 /*Animations will be displayed here*/
 
 
-###  Alamofire Dependency:
+###  Requirements:
+
+## Alamofire Dependency:
 
 - Swift Package Manager
 
@@ -27,5 +29,7 @@ If you prefer not to use any of the aforementioned dependency managers, you can 
 If you have any questions, you can consult the information for its correct implementation here:
 
 https://github.com/Alamofire/Alamofire/blob/master/README.md
+
+
 
 
