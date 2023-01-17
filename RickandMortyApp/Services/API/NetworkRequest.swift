@@ -8,11 +8,15 @@
 import Foundation
 import Alamofire
 
+// MARK: Rick and Morty API, Alamofire Request: an HTTP networking library written in Swift.
+
 final class RickMortyApi {
+    
+    private let baseUrl = "https://rickandmortyapi.com/api/character"
     
     func loadCharacter (completion: @escaping (Result<[Results], Error>) -> ())  {
         
-        AF.request("https://rickandmortyapi.com/api/character").responseDecodable(of: Character.self) { response in
+        AF.request(baseUrl).responseDecodable(of: Character.self) { response in
             
             switch response.result {
             case .success(let charactersList):
@@ -22,5 +26,4 @@ final class RickMortyApi {
             }
         }
     }
-    
 }

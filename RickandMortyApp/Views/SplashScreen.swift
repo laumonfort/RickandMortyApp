@@ -19,7 +19,7 @@ struct SplashScreenView: View {
         }else{
             VStack{
                 VStack{
-                    Image("SplashScreen").resizable().frame(width: 300, height: 300)
+                    Image("SplashImage").resizable().frame(width: 300, height: 300)
                 }.scaleEffect(size)
                     .opacity(opacity)
                     .onAppear{
@@ -39,6 +39,7 @@ struct SplashScreenView: View {
         }
     }
 }
+
 
 struct SplashScreenView_Previews: PreviewProvider {
     static var previews: some View {
