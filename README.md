@@ -29,9 +29,9 @@
 - Filters via the search bar
 
 
-###  Requirements:
+###  Keep in mind:
 
-- Alamofire Dependency:
+- Implementation of Alamofire Dependency:
 
 "The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into the `swift` compiler. 
 
