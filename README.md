@@ -30,6 +30,14 @@ If you have any questions, you can consult the information for its correct imple
 
 https://github.com/Alamofire/Alamofire/blob/master/README.md
 
+###  Extra features that I will add in the future 🚀
+
+Add a tab bar
+Support dark mode 🌙
+Test entities, repositories and useCases
+Improve the arquitecture
+
+
 
 
 
