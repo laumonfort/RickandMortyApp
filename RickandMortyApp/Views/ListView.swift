@@ -16,7 +16,9 @@ import SwiftUI
         name: "Meu", type: "human"),]*/
 
 struct ListView: View {
+    
     @State private var characters: [Results] = []
+   // @State private var showFavorites = false
     
     var body: some View {
         NavigationView {
@@ -35,11 +37,11 @@ struct ListView: View {
                     }
                 }
             }
-            .navigationTitle("Characters")
-            
+            .navigationTitle("Characters List")
+            }
         }
     }
-}
+
     
 
 struct ListView_Previews: PreviewProvider {
@@ -47,3 +49,6 @@ struct ListView_Previews: PreviewProvider {
         ListView()
     }
 }
+
+
+

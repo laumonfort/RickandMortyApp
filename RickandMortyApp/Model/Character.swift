@@ -24,6 +24,7 @@ struct Results: Hashable, Decodable {
     var imageUrl: URL? { return URL(string:"https://rickandmortyapi.com/api/character/avatar/\(id ?? 0).jpeg")}
     let species: String?
     var url: String?
+    //var favorite: Bool
     //let type: String?
      
 }

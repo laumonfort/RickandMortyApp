@@ -13,29 +13,39 @@ struct ListDetailView: View {
     
     //var character: Character // creo una variable de tipo Character para pasar los datos de los personajes al detalle de la Lista
     
-    var character: Results // creo una variable de tipo Results 
+    var character: Results // creo una variable de tipo Results
     
     
     var body: some View {
         VStack {
             AsyncImage(url: character.imageUrl) { image in
-                       image.resizable().frame(width: 200, height: 200)
-                               .clipShape(Circle())
-                               .overlay(Circle()
-                                   .stroke(Color.black, lineWidth: 4 ))
-                           .shadow(color: Color.gray, radius: 5)
-                       } placeholder: {
-                           Image(systemName: "person.fill")
-                               .resizable().frame(width: 200, height: 200)
-                               .clipShape(Circle())
-                               .overlay(Circle()
-                                   .stroke(Color.black, lineWidth: 4 ))
-                           .shadow(color: Color.gray, radius: 5)
-                           
-                       }
-            Text(character.name!).font(.largeTitle)
+                image.resizable()
+                    .frame(width: 200, height: 200)
+                    .clipShape(Circle())
+                    .overlay(Circle()
+                    .stroke(Color.black, lineWidth: 4 ))
+                    .shadow(color: Color.gray, radius: 5)
+            } placeholder: {
+                Image(systemName: "person.fill")
+                    .resizable()
+                    .frame(width: 200, height: 200)
+                    .clipShape(Circle())
+                    .overlay(Circle()
+                    .stroke(Color.black, lineWidth: 4 ))
+                    .shadow(color: Color.gray, radius: 5)
+            }
+            /*HStack {
+                Text(character.name!).font(.largeTitle)
+                Button {
+                    
+                } label: {
+                    Image(systemName: "star.fill").foregroundColor(.yellow)
+                    
+                }
+            }*/
             Text(character.species!).font(.title)
             Text(character.status!).font(.title2)
+            
             Spacer()
             
             /*character.image!.resizable().frame(width: 200, height: 200).clipShape(Circle()).overlay(Circle().stroke(Color.black, lineWidth: 4)).shadow(color: Color.gray, radius: 5)

@@ -20,6 +20,7 @@
 		298C27212974886A00E6BD6B /* ListDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298C27202974886A00E6BD6B /* ListDetailView.swift */; };
 		298C27242975791F00E6BD6B /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298C27232975791F00E6BD6B /* API.swift */; };
 		298C2727297584AA00E6BD6B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 298C2726297584AA00E6BD6B /* Alamofire */; };
+		298C272A2977055700E6BD6B /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298C27292977055700E6BD6B /* SplashScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		2935D1322973842500C2466B /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		298C27202974886A00E6BD6B /* ListDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailView.swift; sourceTree = "<group>"; };
 		298C27232975791F00E6BD6B /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		298C27292977055700E6BD6B /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 				2935D1302973827F00C2466B /* RowView.swift */,
 				2935D1322973842500C2466B /* ListView.swift */,
 				298C27202974886A00E6BD6B /* ListDetailView.swift */,
+				298C27292977055700E6BD6B /* SplashScreen.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				298C272A2977055700E6BD6B /* SplashScreen.swift in Sources */,
 				2935D12F297380B300C2466B /* Character.swift in Sources */,
 				2935D10329737FF500C2466B /* ContentView.swift in Sources */,
 				2935D1332973842500C2466B /* ListView.swift in Sources */,

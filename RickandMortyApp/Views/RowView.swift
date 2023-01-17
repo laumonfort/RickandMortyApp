@@ -3,14 +3,14 @@
 //  RickandMortyApp
 //
 //  Created by Laura Monfort Gomez on 15/1/23.
-
+//
 // Celda encargada de representar los datos de los personajes
 
 import SwiftUI
 
 struct RowView: View {
     
-    var character: Results // de modo que podemos asignar un objeto de tipo character a cada celda y así poder acceder a sus datos
+    var character: Results // de modo que podemos asignar un objeto de tipo Results a cada celda y así poder acceder a sus datos
     var body: some View {
         HStack {
             AsyncImage(url: character.imageUrl) {
@@ -34,6 +34,9 @@ struct RowView: View {
                     Text(character.name!)
                     Text(character.type!)*/
             Spacer()
+            //if character.favorite {
+                //Image(systemName: "star.fill").foregroundColor(.yellow)
+            //}
         }
     }
 }
@@ -41,8 +44,5 @@ struct RowView: View {
 struct RowView_Previews: PreviewProvider {
     static var previews: some View {
         RowView(character: Results(name: "Mau", status: "Alive", species: "Human"))
-                //id: 1,
-            //image: Image(systemName: "person.fill"),
-            //name: "Mau", type: "human"))
     }   
 }
