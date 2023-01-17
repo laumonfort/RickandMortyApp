@@ -10,19 +10,20 @@
 
 - Create a Swift App via API
 - Show list of characters (show: image, name, status, species)
-- Show character detail (show: image, name, status, species, type, gender)
+- Show character detail (show: image, name, status, species)
 - Add a Launch Screen and app icon
 
 ###  Bonus features
 
 - Built in SwiftUI
 - Add a Splash Screen and app icon
+- Designed to improve the user experience
 
 ###  Extra features that I will add in the future 🚀
 
 - Add a tab bar
 - Support dark mode 🌙
-- Test entities, repositories and useCases
+- Test 
 - Improve the arquitecture
 - Add favorites 
 - Filters via the search bar
