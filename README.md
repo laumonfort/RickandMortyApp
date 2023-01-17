@@ -16,7 +16,7 @@
 
 ###  Bonus features
 
-- Build in SwiftUI
+- Build in SwiftUI ✨ 
 - Add a Splash Screen and app icon
 - Designed to improve the user experience
 
