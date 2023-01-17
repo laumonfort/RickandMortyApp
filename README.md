@@ -10,7 +10,7 @@
 
 ###  Requirements:
 
-- Create a Swift App via API.
+- Create a Swift App via API 🌱
 - Show a list of characters (show: image, name, status, species)
 - Retreive character detail (show: image, name, status, species)
 
