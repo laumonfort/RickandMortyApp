@@ -13,7 +13,7 @@
 - Show character detail (show: image, name, status, species, type, gender)
 - Add a Launch Screen and app icon
 
-###  Extra features
+###  Bonus features
 
 - Built in SwiftUI
 - Add a Splash Screen and app icon
