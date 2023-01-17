@@ -1,9 +1,11 @@
 # Rick and Morty App (SwifUI)
 
 - This is an app using the Rick and Morty API: https://rickandmortyapi.com/ 
-- Written in SwiftUI to display the characters from the show.
+- Written in SwiftUI to display the characters from the show:
 
-/*App Animations will be displayed here*/
+/*App visualization here:*/
+
+![Simulator Screen Recording - iPhone 12 - 2023-01-18 at 00 14 56](https://user-images.githubusercontent.com/106591528/213036367-94db8cad-c3c6-42bd-86bf-1fbe58e36f45.gif)
 
 
 ###  Requirements:
@@ -22,7 +24,7 @@
 
 - Add a tab bar
 - Support dark mode 🌙
-- Test 
+- Tests 
 - Improve the arquitecture
 - Add favorites 
 - Filters via the search bar
