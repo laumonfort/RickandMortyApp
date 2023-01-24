@@ -3,7 +3,6 @@
 //  RickandMortyApp
 //
 //  Created by Laura Monfort Gomez on 15/1/23.
-//
 
 import SwiftUI
 
