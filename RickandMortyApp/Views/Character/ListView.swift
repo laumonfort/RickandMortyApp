@@ -8,13 +8,12 @@
 import SwiftUI
 
 struct ListView: View {
-    
     @State private var characters: [Results] = []
     
     var body: some View {
         NavigationView {
             List(characters, id: \.id) { item in
-                NavigationLink(destination: ListDetailView(character: item)) {// Navegation between screens
+                NavigationLink(destination: ListDetailView(character: item)) {
                     RowView(character: item)
                 }
             }
@@ -29,16 +28,12 @@ struct ListView: View {
                 }
             }
             .navigationTitle("Characters List")
-            }
         }
     }
+}
 
-    
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
         ListView()
     }
 }
-
-
-
