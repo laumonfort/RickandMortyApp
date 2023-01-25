@@ -27,10 +27,12 @@ struct RowView: View {
             .clipShape(Circle())
             
             VStack(alignment: .leading) {
-                Text(character.name!.capitalized)
+                let _ =
+                Text(character.name?.capitalized ?? "")
                     .font(.headline)
                     .fontWeight(.medium)
-                Text(character.species!)
+                let _ =
+                Text(character.species ?? "")
                     .font(.subheadline)
                     .fontWeight(.thin)
             }
@@ -38,15 +40,18 @@ struct RowView: View {
             Spacer()
             
             if (character.status == "Alive") {
-                Text(character.status!)
+                let _ =
+                Text(character.status ?? "")
                 Image(systemName: "circle.fill")
                     .foregroundColor(.green)
             }else if(character.status == "unknown") {
-                Text(character.status!)
+                let _ =
+                Text(character.status ?? "")
                 Image(systemName: "circle.fill")
                     .foregroundColor(.orange)
             }else{
-                Text(character.status!)
+                let _ =
+                Text(character.status ?? "")
                 Image(systemName: "circle.fill")
                     .foregroundColor(.red)
             }

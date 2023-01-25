@@ -23,14 +23,17 @@ struct ListDetailView: View {
                     .frame(width: 300, height: 300)
                     .clipShape(Circle())
             }
-            Text(character.name!)
+            let _ =
+            Text(character.name ?? "")
                 .font(.largeTitle)
-            Text(character.species!)
+            let _ =
+            Text(character.species ?? "")
                 .font(.title2)
                 .foregroundColor(.gray)
             
             HStack {
-                Text(character.status!)
+                let _ =
+                Text(character.status ?? "")
                     .font(.title3)
                     .foregroundColor(.gray)
                 if (character.status == "Alive") {
