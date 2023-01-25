@@ -27,11 +27,9 @@ struct RowView: View {
             .clipShape(Circle())
             
             VStack(alignment: .leading) {
-                let _ =
                 Text(character.name?.capitalized ?? "")
                     .font(.headline)
                     .fontWeight(.medium)
-                let _ =
                 Text(character.species ?? "")
                     .font(.subheadline)
                     .fontWeight(.thin)
@@ -40,17 +38,14 @@ struct RowView: View {
             Spacer()
             
             if (character.status == "Alive") {
-                let _ =
                 Text(character.status ?? "")
                 Image(systemName: "circle.fill")
                     .foregroundColor(.green)
             }else if(character.status == "unknown") {
-                let _ =
                 Text(character.status ?? "")
                 Image(systemName: "circle.fill")
                     .foregroundColor(.orange)
             }else{
-                let _ =
                 Text(character.status ?? "")
                 Image(systemName: "circle.fill")
                     .foregroundColor(.red)
@@ -58,7 +53,6 @@ struct RowView: View {
         }
     }
 }
-
 
 struct RowView_Previews: PreviewProvider {
     static var previews: some View {
