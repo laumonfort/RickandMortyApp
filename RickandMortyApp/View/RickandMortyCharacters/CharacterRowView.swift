@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct RowView: View {
+struct CharacterRowView: View {
     let character: Results
     
     var body: some View {
@@ -56,6 +56,6 @@ struct RowView: View {
 
 struct RowView_Previews: PreviewProvider {
     static var previews: some View {
-        RowView(character: Results(name: "Mau", status: "Alive", species: "Human"))
+        CharacterRowView(character: Results(name: "Mau", status: "Alive", species: "Human"))
     }   
 }

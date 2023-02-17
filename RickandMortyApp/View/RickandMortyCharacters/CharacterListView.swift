@@ -4,17 +4,16 @@
 //
 //  Created by Laura Monfort Gomez on 15/1/23.
 
-
 import SwiftUI
 
-struct ListView: View {
+struct CharacterListView: View {
     @State private var characters: [Results] = []
     
     var body: some View {
         NavigationView {
             List(characters, id: \.id) { item in
-                NavigationLink(destination: ListDetailView(character: item)) {
-                    RowView(character: item)
+                NavigationLink(destination: CharacterListDetailView(character: item)) {
+                    CharacterRowView(character: item)
                 }
             }
             .onAppear(){
@@ -27,13 +26,13 @@ struct ListView: View {
                     }
                 }
             }
-            .navigationTitle("Characters List")
+            .navigationTitle("Rick and Morty Character List")
         }
     }
 }
 
-struct ListView_Previews: PreviewProvider {
+struct CharacterListView_Previews: PreviewProvider {
     static var previews: some View {
-        ListView()
+        CharacterListView()
     }
 }

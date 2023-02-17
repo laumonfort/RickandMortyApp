@@ -6,7 +6,7 @@
 
 import SwiftUI
 
-struct ListDetailView: View {
+struct CharacterListDetailView: View {
     var character: Results
     
     var body: some View {
@@ -51,7 +51,6 @@ struct ListDetailView: View {
 
 struct ListDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        
-        ListDetailView (character: Results.init(name: "Name", status: "Alive", species: "String", url: "url"))
+        CharacterListDetailView (character: Results.init(name: "Name", status: "Alive", species: "String", url: "url"))
     }
 }
