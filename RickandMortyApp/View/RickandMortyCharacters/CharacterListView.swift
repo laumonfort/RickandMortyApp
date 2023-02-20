@@ -36,3 +36,4 @@ struct CharacterListView_Previews: PreviewProvider {
         CharacterListView()
     }
 }
+

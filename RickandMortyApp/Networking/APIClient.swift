@@ -31,3 +31,4 @@ final class RickMortyApi {
     struct APIError: Error, Decodable {
         let error: String
     }
+
