@@ -26,7 +26,7 @@ struct CharacterListView: View {
                     }
                 }
             }
-            .navigationTitle("Rick and Morty Character List")
+            .navigationTitle("Character List")
         }
     }
 }
