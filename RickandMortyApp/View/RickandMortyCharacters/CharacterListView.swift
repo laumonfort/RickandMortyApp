@@ -8,25 +8,44 @@ import SwiftUI
 
 struct CharacterListView: View {
     @State private var characters: [Results] = []
+    @State private var showRetryButton: Bool = false
     
     var body: some View {
         NavigationView {
-            List(characters, id: \.id) { item in
-                NavigationLink(destination: CharacterListDetailView(character: item)) {
-                    CharacterRowView(character: item)
+            if characters.isEmpty && !showRetryButton {
+                ProgressView()
+                    .onAppear() {
+                        loadData()
+                    }
+            } else if characters.isEmpty && showRetryButton {
+                VStack {
+                    Text("Unable to load data. Please check your internet connection.")
+                    Button(action: {
+                        loadData()
+                    }, label: {
+                        Text("Retry")
+                    })
                 }
-            }
-            .onAppear(){
-                RickMortyApi().loadCharacter() { result in
-                    switch result {
-                    case .success(let characters):
-                        self.characters = characters
-                    case .failure(let error):
-                        print(error)
+            } else {
+                List(characters, id: \.id) { item in
+                    NavigationLink(destination: CharacterListDetailView(character: item)) {
+                        CharacterRowView(character: item)
                     }
                 }
+                .navigationTitle("Character List")
             }
-            .navigationTitle("Character List")
+        }
+    }
+    
+    private func loadData() {
+        RickMortyApi().loadCharacter() { result in
+            switch result {
+            case .success(let characters):
+                self.characters = characters
+            case .failure(let error):
+                print(error)
+                self.showRetryButton = true
+            }
         }
     }
 }
@@ -36,4 +55,3 @@ struct CharacterListView_Previews: PreviewProvider {
         CharacterListView()
     }
 }
-
