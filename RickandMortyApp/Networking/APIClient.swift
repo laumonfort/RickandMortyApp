@@ -31,7 +31,7 @@ final class RickMortyApi: RickMortyApiProtocol {
     private let baseUrl = "https://rickandmortyapi.com/api/character"
 
     func loadCharacter(completion: @escaping (Result<[Results]>) -> Void) {
-        AF.request(baseUrl).responseDecodable(of: Character.self) { response in
+        AF.request(baseUrl).responseDecodable(of: CharacterResponse.self) { response in
             switch response.result {
             case .success(let characterList):
                 completion(.success(characterList.results))

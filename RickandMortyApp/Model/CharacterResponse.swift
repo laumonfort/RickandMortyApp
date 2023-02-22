@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Character: Hashable, Decodable {
+struct CharacterResponse: Hashable, Decodable {
     let results: [Results]
 }
 
