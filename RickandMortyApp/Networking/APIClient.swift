@@ -20,6 +20,7 @@ enum NetworkError: Error {
     case decodingError
     case serverError(Int)
     case networkError(Error)
+    case parseError(Error)
 }
 
 protocol RickMortyApiProtocol {
@@ -32,15 +33,17 @@ final class RickMortyApi: RickMortyApiProtocol {
     func loadCharacter(completion: @escaping (Result<[Results]>) -> Void) {
         AF.request(baseUrl).responseDecodable(of: Character.self) { response in
             switch response.result {
-            case .success(let character):
-                completion(.success(character.results))
+            case .success(let characterList):
+                completion(.success(characterList.results))
             case .failure(let error):
                 if let response = response.response {
                     if 400..<500 ~= response.statusCode {
-                        completion(.failure(NetworkError.serverError(response.statusCode)))
+                      completion(.failure(NetworkError.serverError(response.statusCode)))
                     } else {
                         completion(.failure(NetworkError.networkError(error)))
                     }
+                } else if let parseError = error as? AFError.ResponseSerializationFailureReason?{
+                    completion(.failure(NetworkError.parseError(parseError as! Error)))
                 } else {
                     completion(.failure(NetworkError.networkError(error)))
                 }
