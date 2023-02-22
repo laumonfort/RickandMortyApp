@@ -15,12 +15,9 @@ enum Result<T> {
 }
 
 enum NetworkError: Error {
-    case invalidURL
-    case invalidResponse
-    case decodingError
+    case clientError(Int)
     case serverError(Int)
     case networkError(Error)
-    case parseError(Error)
 }
 
 protocol RickMortyApiProtocol {
@@ -29,25 +26,33 @@ protocol RickMortyApiProtocol {
 
 final class RickMortyApi: RickMortyApiProtocol {
     private let baseUrl = "https://rickandmortyapi.com/api/character"
-
+    
     func loadCharacter(completion: @escaping (Result<[Results]>) -> Void) {
-        AF.request(baseUrl).responseDecodable(of: Character.self) { response in
-            switch response.result {
-            case .success(let characterList):
-                completion(.success(characterList.results))
-            case .failure(let error):
-                if let response = response.response {
-                    if 400..<500 ~= response.statusCode {
-                      completion(.failure(NetworkError.serverError(response.statusCode)))
-                    } else {
-                        completion(.failure(NetworkError.networkError(error)))
-                    }
-                } else if let parseError = error as? AFError.ResponseSerializationFailureReason?{
-                    completion(.failure(NetworkError.parseError(parseError as! Error)))
-                } else {
-                    completion(.failure(NetworkError.networkError(error)))
+            AF.request(baseUrl).responseDecodable(of: CharacterResponse.self) { [weak self] response in
+                switch response.result {
+                case .success(let characterList):
+                    completion(.success(characterList.results))
+                case .failure(let error):
+                    let networkError = self?.handleResponseError(response, error: error) ?? .networkError(error)
+                    completion(.failure(networkError))
                 }
             }
         }
+        
+        private func handleResponseError(_ response: AFDataResponse<CharacterResponse>, error: Error) -> NetworkError {
+            if let statusCode = response.response?.statusCode {
+                switch statusCode {
+                case 400..<500:
+                    return .clientError(statusCode)
+                case 500..<600:
+                    return .serverError(statusCode)
+                default:
+                    return .networkError(error)
+                }
+            } else {
+                return .networkError(error)
+            }
+        }
     }
-}
+  
+

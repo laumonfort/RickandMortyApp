@@ -1,9 +1,8 @@
 //
-//  ListView.swift
+//  CharacterListView.swift
 //  RickandMortyApp
 //
 //  Created by Laura Monfort Gomez on 15/1/23.
-
 import SwiftUI
 
 struct CharacterListView: View {
@@ -12,12 +11,7 @@ struct CharacterListView: View {
     
     var body: some View {
         NavigationView {
-            if characters.isEmpty && !showRetryButton {
-                ProgressView()
-                    .onAppear() {
-                        loadData()
-                    }
-            } else if characters.isEmpty && showRetryButton {
+            if characters.isEmpty && showRetryButton {
                 VStack {
                     Text("Unable to load data. Please check your internet connection.")
                     Button(action: {
@@ -33,6 +27,11 @@ struct CharacterListView: View {
                     }
                 }
                 .navigationTitle("Character List")
+                .onAppear() {
+                    if characters.isEmpty {
+                        loadData()
+                    }
+                }
             }
         }
     }
