@@ -1,4 +1,4 @@
-# Rick and Morty App (SwifUI)
+# Rick and Morty App (SwiftUI)
 
 - This is an app using the Rick and Morty API: https://rickandmortyapi.com/ 
 - Written in SwiftUI to display the characters from the show:
