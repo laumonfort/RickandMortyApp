@@ -6,6 +6,11 @@
 
 import SwiftUI
 
+enum MyResult<T, E> {
+    case success(T)
+    case failure(E)
+}
+
 struct CharacterListView: View {
     @State private var characters: [Results] = []
     @State private var showRetryButton: Bool = false
@@ -40,11 +45,14 @@ struct CharacterListView: View {
     private func loadData() {
         RickMortyApi().loadCharacter() { result in
             switch result {
-            case .success(let characters):
+            case .success(let characters) :
                 self.characters = characters
-            case .failure(let error):
-                print(error)
+            case .failure(let error as NSError) where error.code == NSURLErrorNotConnectedToInternet:
                 self.showRetryButton = true
+                print("Error: Unable to connect to the Internet")
+            default:
+                self.showRetryButton = true
+                print("Unknow Error")
             }
         }
     }
