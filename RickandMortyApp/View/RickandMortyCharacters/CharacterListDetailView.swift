@@ -11,45 +11,59 @@ struct CharacterListDetailView: View {
     
     var body: some View {
         VStack {
-            AsyncImage(url: character.imageUrl) { image in
-                image
-                    .resizable()
-                    .frame(width: 300, height: 300)
-                    .clipShape(Circle())
-                
-            } placeholder: {
-                Image(systemName: "person.fill")
-                    .resizable()
-                    .frame(width: 300, height: 300)
-                    .clipShape(Circle())
-            }
-            Text(character.name ?? "")
-                .font(.largeTitle)
-            Text(character.species ?? "")
-                .font(.title2)
-                .foregroundColor(.gray)
-            
-            HStack {
-                Text(character.status ?? "")
-                    .font(.title3)
-                    .foregroundColor(.gray)
-                if (character.status == "Alive") {
-                    Image(systemName: "circle.fill")
-                        .foregroundColor(.green)
-                }else if(character.status == "unknown") {
-                    Image(systemName: "circle.fill")
-                        .foregroundColor(.orange)
-                }else{
-                    Image(systemName: "circle.fill").foregroundColor(.red)
-                }
-            }
-            
+            characterImage
+            characterName
+            characterSpecies
+            characterStatus
             Spacer()
         }
     }
+    
+    private var characterImage: some View {
+        AsyncImage(url: character.imageUrl) { image in
+            image
+                .resizable()
+                .frame(width: 300, height: 300)
+                .clipShape(Circle())
+        } placeholder: {
+            Image(systemName: "person.fill")
+                .resizable()
+                .frame(width: 300, height: 300)
+                .clipShape(Circle())
+        }
+    }
+    
+    private var characterName: some View {
+        Text(character.name ?? "")
+            .font(.largeTitle)
+    }
+    
+    private var characterSpecies: some View {
+        Text(character.species ?? "")
+            .font(.title2)
+            .foregroundColor(.gray)
+    }
+    
+    private var characterStatus: some View {
+        HStack {
+            Text(character.status ?? "")
+                .font(.title3)
+                .foregroundColor(.gray)
+            statusCircle
+        }
+    }
+    
+    private var statusCircle: some View {
+        guard let status = CharacterStatus(rawValue: character.status ?? "") else {
+            return Image(systemName: "circle.fill")
+                .foregroundColor(.gray)
+        }
+        return Image(systemName: "circle.fill")
+            .foregroundColor(status.color)
+    }
 }
 
-struct ListDetailView_Previews: PreviewProvider {
+struct CharacterListDetailView_Previews: PreviewProvider {
     static var previews: some View {
         CharacterListDetailView (character: Results.init(name: "Name", status: "Alive", species: "String", url: "url"))
     }
