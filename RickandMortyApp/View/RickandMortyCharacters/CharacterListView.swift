@@ -3,6 +3,7 @@
 //  RickandMortyApp
 //
 //  Created by Laura Monfort Gomez on 15/1/23.
+
 import SwiftUI
 
 struct CharacterListView: View {
@@ -46,11 +47,5 @@ struct CharacterListView: View {
                 self.showRetryButton = true
             }
         }
-    }
-}
-
-struct CharacterListView_Previews: PreviewProvider {
-    static var previews: some View {
-        CharacterListView()
     }
 }
