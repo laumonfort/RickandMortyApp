@@ -8,26 +8,9 @@
 
 import SwiftUI
 
-enum CharacterStatus: String {
-    case alive = "Alive"
-    case unknown = "unknown"
-    case dead = "Dead"
-    
-    var color: Color {
-        switch self {
-        case .alive:
-            return .green
-        case .unknown:
-            return .orange
-        case .dead:
-            return .red
-        }
-    }
-}
-
 struct CharacterRowView: View {
     let character: Results
-    
+
     var body: some View {
         HStack {
             characterImage
@@ -37,6 +20,23 @@ struct CharacterRowView: View {
         }
     }
     
+    enum CharacterStatus: String {
+        case alive = "Alive"
+        case unknown = "unknown"
+        case dead = "Dead"
+        
+        var color: Color {
+            switch self {
+            case .alive:
+                return .green
+            case .unknown:
+                return .orange
+            case .dead:
+                return .red
+            }
+        }
+    }
+
     private var characterImage: some View {
         AsyncImage(url: character.imageUrl) { image in
             image
@@ -51,7 +51,7 @@ struct CharacterRowView: View {
         .background(Color.gray.opacity(0.1))
         .clipShape(Circle())
     }
-    
+
     private var characterDetails: some View {
         VStack(alignment: .leading) {
             Text(character.name?.capitalized ?? "")
@@ -62,7 +62,7 @@ struct CharacterRowView: View {
                 .fontWeight(.thin)
         }
     }
-    
+
     private var characterStatus: some View {
         if let status = CharacterStatus(rawValue: character.status ?? "") {
             return AnyView(
@@ -76,10 +76,10 @@ struct CharacterRowView: View {
             return AnyView(Text("Unknown status"))
         }
     }
+}
 
-    struct CharacterRowView_Previews: PreviewProvider {
-        static var previews: some View {
-            CharacterRowView(character: Results(name: "Mau", status: "Alive", species: "Human"))
-        }
+struct CharacterRowView_Previews: PreviewProvider {
+    static var previews: some View {
+        CharacterRowView(character: Results(name: "Mau", status: "Alive", species: "Human"))
     }
 }
