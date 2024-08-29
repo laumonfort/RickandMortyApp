@@ -25,9 +25,10 @@
 - Add a tab bar
 - Support dark mode 🌙
 - Tests 
-- Improve the arquitecture
+- ~~Improve the architecture~~ Implement MVVM ✅
 - Add favorites 
-- Filters via the search bar
+- Filters via the search bar 
+
 
 
 ###  Keep in mind:
