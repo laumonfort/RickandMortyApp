@@ -7,8 +7,8 @@
 import SwiftUI
 
 struct CharacterListDetailView: View {
-    var character: Results
-    
+    @ObservedObject var viewModel: CharacterDetailViewModel
+
     var body: some View {
         VStack {
             characterImage
@@ -19,8 +19,25 @@ struct CharacterListDetailView: View {
         }
     }
     
+    enum CharacterStatus: String {
+        case alive = "Alive"
+        case unknown = "unknown"
+        case dead = "Dead"
+        
+        var color: Color {
+            switch self {
+            case .alive:
+                return .green
+            case .unknown:
+                return .orange
+            case .dead:
+                return .red
+            }
+        }
+    }
+
     private var characterImage: some View {
-        AsyncImage(url: character.imageUrl) { image in
+        AsyncImage(url: viewModel.character.imageUrl) { image in
             image
                 .resizable()
                 .frame(width: 300, height: 300)
@@ -32,29 +49,29 @@ struct CharacterListDetailView: View {
                 .clipShape(Circle())
         }
     }
-    
+
     private var characterName: some View {
-        Text(character.name ?? "")
+        Text(viewModel.character.name ?? "")
             .font(.largeTitle)
     }
-    
+
     private var characterSpecies: some View {
-        Text(character.species ?? "")
+        Text(viewModel.character.species ?? "")
             .font(.title2)
             .foregroundColor(.gray)
     }
-    
+
     private var characterStatus: some View {
         HStack {
-            Text(character.status ?? "")
+            Text(viewModel.character.status ?? "")
                 .font(.title3)
                 .foregroundColor(.gray)
             statusCircle
         }
     }
-    
+
     private var statusCircle: some View {
-        guard let status = CharacterStatus(rawValue: character.status ?? "") else {
+        guard let status = CharacterStatus(rawValue: viewModel.character.status ?? "") else {
             return Image(systemName: "circle.fill")
                 .foregroundColor(.gray)
         }
@@ -65,6 +82,6 @@ struct CharacterListDetailView: View {
 
 struct CharacterListDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        CharacterListDetailView (character: Results.init(name: "Name", status: "Alive", species: "String", url: "url"))
+        CharacterListDetailView(viewModel: CharacterDetailViewModel(character: Results(name: "Name", status: "Alive", species: "String", url: "url")))
     }
 }

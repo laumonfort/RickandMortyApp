@@ -20,4 +20,3 @@ struct Results: Hashable, Decodable {
     let species: String?
     var url: String?
 }
- 

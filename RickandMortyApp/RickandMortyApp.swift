@@ -7,7 +7,7 @@
 import SwiftUI
 
 @main
-struct RickandMortyAppApp: App {
+struct RickandMortyApp: App {
     var body: some Scene {
         WindowGroup {
             SplashScreenView()
