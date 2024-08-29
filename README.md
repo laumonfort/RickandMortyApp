@@ -1,7 +1,8 @@
 # Rick and Morty App (SwiftUI)
 
 - This is an app using the Rick and Morty API: https://rickandmortyapi.com/ 
-- Written in SwiftUI to display the characters from the show:
+- Written in SwiftUI to display the characters from the show.
+- Follows the MVVM (Model-View-ViewModel) architecture pattern, which helps to separate concerns and maintain a clean, scalable code.
 
 **App visualization:**
 
@@ -22,14 +23,12 @@
 
 ###  Extra features that I will add in the future 🚀
 
-- Add a tab bar
+- ~~Improve the architecture~~ Implemented MVVM architecture pattern🩵 
+- Tests
 - Support dark mode 🌙
-- Tests 
-- ~~Improve the architecture~~ Implement MVVM ✅
-- Add favorites 
+- Add a tab bar
+- Add favorites
 - Filters via the search bar 
-
-
 
 ###  Keep in mind:
 
